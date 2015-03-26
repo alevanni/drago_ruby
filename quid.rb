@@ -1,12 +1,23 @@
+#!/usr/bin/ruby
 
+#definisco la classe
+#la chiamo quid perce' ancora non ho eciso cosa sara'
 
 class Quid
  attr_accessor :stato #hash con lo stato del drago
  attr_accessor :nome
  attr_accessor :livello
- def initialize 
+ attr_accessor :salvataggio #file di testo che contiene i dati del salvataggio
+
+  
+ def initialize #costruttore
   @stato= {} #inizializzo l'hash dello stato
-  #File.open("stato.txt").
+  #inizializz anche l'oggetto file e gli faccio leggere il salvataggio
+  @salvataggio=File.new("stato.txt", "w+") 
+  #fagli leggere tutto
+  #end
+  #w+ serve a sovrascrivere
+  #tutto il blocco qui sotto srve nel caso in cui i file abbia scritto sopra "non definito"
   puts 'Come vuoi che mi chiami?'
   @nome=gets.chomp
   @livello=0
@@ -40,6 +51,8 @@ class Quid
 
   def salva
     #scrive il salvataggio su un file di testo
+    #per adesso salva solo l'ora
+    @salvataggio.syswrite(Time.new)
   end
 end
 
