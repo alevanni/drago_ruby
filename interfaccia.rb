@@ -3,32 +3,25 @@ require './quid.rb'
 require './barre_bottoni.rb'
 require 'tk'
 require './Quid_canvas'
+require './Barra_stato.rb'
 #un abbozzo dell'interfaccia grafica
 
 class Interfaccia
- # attr_accessor :finestra #in realta' non serve che siano attributi
-  attr_accessor :f2
-  attr_accessor :barra_sopra
-  attr_accessor :barra_sotto
-  attr_accessor :mycanvas #
-def initialize
-  @finestra=TkRoot.new{
-      title "Quid"
-  }
-
-  @barra_sopra=Barre_bottoni.new 'top', 'mangia', 'cura'
-   
-  @f2 = TkFrame.new {
-        relief 'groove'
-        borderwidth 10
-        height 200
-        width 300
-        pack('side' => 'top')
-  }
-  @barra_sotto=Barre_bottoni.new 'bottom', 'gioca', 'lava'
-
-  @mycanvas=Quid_canvas.new @f2
-end
+  attr_accessor :b
+  attr_accessor :b2
+  attr_accessor :f
+  def initialize
+   @b=Barre_bottoni.new 'top', 'MANGIA', 'GIOCA'
+   @f=TkFrame.new {
+     background 'white'
+     relief 'groove'
+     borderwidth 10
+     height 150
+     width 200
+     pack('side'=>'top')
+    }
+   @b2=Barre_bottoni.new 'top', 'LAVA', 'CURA'
+  end
 
 end
 a=Interfaccia.new
