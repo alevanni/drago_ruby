@@ -2,6 +2,7 @@
 require './quid.rb'
 require './barre_bottoni.rb'
 require 'tk'
+require './Quid_canvas'
 #un abbozzo dell'interfaccia grafica
 
 class Interfaccia
@@ -9,7 +10,7 @@ class Interfaccia
   attr_accessor :f2
   attr_accessor :barra_sopra
   attr_accessor :barra_sotto
-  attr_accessor :canvas #
+  attr_accessor :mycanvas #
 def initialize
   @finestra=TkRoot.new{
       title "Quid"
@@ -26,11 +27,7 @@ def initialize
   }
   @barra_sotto=Barre_bottoni.new 'bottom', 'gioca', 'lava'
 
-  @canvas=TkCanvas.new(@f2) {
-  background 'white'
-  pack('padx'=>1, 'pady'=>1, 'side'=>'top', 'expand'=>1)
-   }
-  @canvas.pack
+  @mycanvas=Quid_canvas.new @f2
 end
 
 end
