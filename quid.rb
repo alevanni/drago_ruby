@@ -1,18 +1,18 @@
 #!/usr/bin/ruby
 
 #definisco la classe
-#la chiamo quid perce' ancora non ho eciso cosa sara'
+#la chiamo quid perche' ancora non ho eciso cosa sara'
 
 class Quid
  attr_accessor :stato #hash con lo stato del drago
  attr_accessor :nome
  attr_accessor :livello
  attr_accessor :salvataggio #file di testo che contiene i dati del salvataggio
-
+ 
   
  def initialize #costruttore
   @stato= {} #inizializzo l'hash dello stato
-  #inizializz anche l'oggetto file e gli faccio leggere il salvataggio
+  #inizializzo anche l'oggetto file e gli faccio leggere il salvataggio
   @salvataggio=File.new("stato.txt", "w+") 
   #fagli leggere tutto
   #end
